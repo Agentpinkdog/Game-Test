@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+import java.util.Random;
+
+public class Rps{
+    public static void main(String[] args){
+        Scanner c = new Scanner(System.in);
+        System.out.println("Rock = 1");
+        System.out.println("Paper = 2");
+        System.out.println("Scissors = 3");
+        int points = 0;
+        while(points < 10){
+        System.out.println("Please enter your choice: ");
+       int Player = c.nextInt(); 
+       
+       
+       Random rand = new Random();
+       int upperbound = 4;
+       
+       int Comp = rand.nextInt(upperbound);
+       
+       if(Comp == 0){
+           Comp++;
+       }
+      
+       if(Comp == Player){ 
+           System.out.println("Tie!");
+           System.out.println("Player: " + Player + " Computer: " + Comp);
+      }
+       else if(Player == 2 && Comp == 1 || Player == 1 && Comp == 3 || Player == 3 && Comp == 2){
+           System.out.println("You Win!!");
+           points++;
+           System.out.println("Player: " + Player + " Computer: " + Comp);
+       }
+       else if(Comp == 2 && Player == 1 || Comp == 1 && Player == 3 || Comp == 3 && Player == 2){
+           System.out.println("Computer Wins!!");
+           System.out.println("Player: " + Player + " Computer: " + Comp);
+       }
+       else{
+           System.out.println("Error! Choice must be in range 1-3");
+        }
+    }
+}
+}
